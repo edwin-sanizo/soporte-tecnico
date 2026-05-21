@@ -1,20 +1,43 @@
 ---
+import {
+  MonitorCog,
+  BrushCleaning,
+  HardDrive,
+  ShieldCheck,
+  DatabaseBackup,
+  Cctv
+} from 'lucide-astro';
+
 const services = [
   {
-    title: 'Reparación de PCs y Laptops',
-    description: 'Diagnóstico y reparación de equipos.'
+    title: 'Instalación de Sistemas Operativos',
+    description: 'Formateo e instalación de Windows y otros sistemas operativos.',
+    icon: MonitorCog
   },
   {
-    title: 'Soporte Remoto',
-    description: 'Asistencia técnica en línea inmediata.'
+    title: 'Limpieza y Mantenimiento Preventivo',
+    description: 'Limpieza interna profunda y cambio de pasta térmica.',
+    icon: BrushCleaning
   },
   {
-    title: 'Instalación de Redes',
-    description: 'Configuración de routers y WiFi.'
+    title: 'Actualización de Hardware',
+    description: 'Instalación de SSD, memoria RAM, fuentes y otros componentes.',
+    icon: HardDrive
   },
   {
-    title: 'Mantenimiento',
-    description: 'Optimización y limpieza de equipos.'
+    title: 'Eliminación de Virus y Optimización',
+    description: 'Limpieza de malware, virus y mejora del rendimiento del sistema.',
+    icon: ShieldCheck
+  },
+  {
+    title: 'Recuperación y Respaldo de Datos',
+    description: 'Recuperación de archivos y creación de copias de seguridad.',
+    icon: DatabaseBackup
+  },
+    {
+    title: 'Instalación de Cámaras de Seguridad',
+    description: 'Configuración e instalación de sistemas de videovigilancia.',
+    icon: Cctv
   }
 ]
 ---
@@ -23,7 +46,7 @@ const services = [
   <div class="max-w-7xl mx-auto px-6">
 
     <div class="text-center mb-16">
-      <p class="text-cyan-400 font-semibold mb-3">
+      <p class="text-[#9dd501] font-semibold mb-3 text-2xl">
         Nuestros Servicios
       </p>
 
@@ -32,21 +55,31 @@ const services = [
       </h2>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-      {
-        services.map(service => (
-          <div class="bg-slate-950 border border-slate-800 p-8 rounded-3xl hover:border-cyan-400 transition">
-            <h3 class="text-2xl font-bold mb-4">
-              {service.title}
-            </h3>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+  {
+    services.map(service => {
+      const Icon = service.icon;
 
-            <p class="text-slate-400">
-              {service.description}
-            </p>
+      return (
+        <div class="bg-slate-950 border border-slate-800 p-8 rounded-3xl hover:border-[#9dd501] transition hover:-translate-y-2">
+
+          <div class="mb-6 text-[#9dd501]">
+            <Icon size={42} />
           </div>
-        ))
-      }
-    </div>
+
+          <h3 class="text-2xl font-bold mb-4">
+            {service.title}
+          </h3>
+
+          <p class="text-slate-400 leading-relaxed">
+            {service.description}
+          </p>
+
+        </div>
+      )
+    })
+  }
+</div>
 
   </div>
 </section>
